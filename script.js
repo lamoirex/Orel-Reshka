@@ -1,8 +1,8 @@
 // var money = 0;
-if(localStorage.getItem('money') != 0) {
+if(localStorage.getItem('money') > 0) {
     var money = localStorage.getItem('money')
 } else {
-    var money = 0
+    var money = 100
 }
 var upgrader = 0;
 var maxRandomValueUpgrader = 0;
