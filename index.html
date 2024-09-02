@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="clicker, Орел и Решка, click, rebirth, Кликер, Игра, game, play clicker,">
+    <meta name="description" content="Кликер Орел и Решка">
+    <title>Орел и Решка</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- навигация -->
+        <div id="navbar">
+            <nav>
+                <ul>
+                    <li><button class="navbarButton" id="upgradesButton">Улучшения</button></li>
+                    <li><button class="navbarButton" id="rebirthButton">Перерождения</button></li>
+                    <li><button class="navbarButton" id="statisticsButton">Статистика</button></li>
+
+                </ul>
+                <div class="moneyDiv">
+                    <div class="money">
+                        <h3 id="moneyCount">Монет: 0 </h3>
+                    </div>
+                </div>
+                <div class="moneyPerSecondDiv">
+                    <div class="moneyPerSecond"  style="display: none;">
+                        <span id="moneyPerSecondID">Монет в секунду: 0</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- навигация -->
+
+        <div class="other" id="other">
+            <!-- кнопка подкинуть -->
+            <button class="btn" id="btn1" name="btn1">
+                Подкинуть
+            </button>
+            <!-- кнопка подкинуть -->
+
+
+            <!-- меню "Улучшения" -->
+            <div class="upgradeMenu scrollbarChange" id="upgradeMenu" style="display: none">
+                <button class="closeButton" id="closeButton1">X</button>
+                <button class="upgradeChooseBtn" id="clickUpgradesBtn" style="background: #6dbd71;">$</button>
+                <button class="upgradeChooseBtn" id="moneyPerSecUpgradesBtn" style="background: #fff3c5;">M</button>
+                <span class="menuHeader">УЛУЧШЕНИЯ</span>
+                <!-- улучшения клика -->
+                <div id="clickUpgradesDiv"  style="display: flex; flex-direction: column;">
+                    <div class="upgradeButtonDiv" id="upgrade1" style="order: 4;">
+                        <div>
+                        <button class="upgradeButton" id="upgradeButton1">200</button>
+                        </div>
+                        
+                        <h3 class="textInUpgradeButtonDiv">+1 монета за клик</h3>
+                        
+                        <div>
+                            <div class="maxUpgradeCountDiv" id="div1ForMaxUpgradeCount">
+                                    <span class="maxUpgradeCountText" id="spanForUpgradeCount1">0/10</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="upgradeButtonDiv" id="upgrade2" style="order: 1;">
+                        <div>
+                        <button class="upgradeButton" id="upgradeButton2">50</button>
+                        </div>
+                        
+                        <h3 class="textInUpgradeButtonDiv">+1 к максимальному пределу клика</h3>
+                        <div>
+                            <div class="maxUpgradeCountDiv" id="div2ForMaxUpgradeCount">
+                                <span class="maxUpgradeCountText" id="spanForUpgradeCount2">0/20</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upgradeButtonDiv" id="upgrade3" style="order: 3;">
+                        <div>
+                        <button class="upgradeButton" id="upgradeButton3">150</button>
+                        </div>
+                        
+                        <h3 class="textInUpgradeButtonDiv">+1 к минимальному пределу клика</h3>
+                        <div>
+                            <div class="maxUpgradeCountDiv" id="div3ForMaxUpgradeCount">
+                                <span class="maxUpgradeCountText" id="spanForUpgradeCount3">0/15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upgradeButtonDiv" id="upgrade4" style="order: 2;">
+                        <div>
+                        <button class="upgradeButton" id="upgradeButton4">100</button>
+                        </div>
+
+                        <h3 class="textInUpgradeButtonDiv">-0.1 к таймеру подкидывания</h3>
+                        <div>
+                            <div class="maxUpgradeCountDiv" id="div4ForMaxUpgradeCount">
+                                <span class="maxUpgradeCountText" id="spanForUpgradeCount4">0/27</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upgradeButtonDiv" id="upgrade6" style="order: 5; display: none;">
+                        <div>
+                        <button class="upgradeButton" id="upgradeButton6">cost</button>
+                        </div>
+
+                        <h3 class="textInUpgradeButtonDiv">text here</h3>
+                        <div>
+                            <div class="maxUpgradeCountDiv" id="div6ForMaxUpgradeCount">
+                                <span class="maxUpgradeCountText" id="spanForUpgradeCount6">0/0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- улучшения клика -->
+
+                 <!-- улучшения "money per second" -->
+                 <div id="moneyPerSecUpgradesDiv"  style="display: none; flex-direction: column;">
+                    <div class="upgradeButtonDiv" id="upgrade5" style="order: 1;">
+                        <div>
+                        <button class="upgradeButton" id="upgradeButton5">500</button>
+                        </div>
+
+                        <h3 class="textInUpgradeButtonDiv">+1 монета в секунду</h3>
+                        <div>
+                            <div class="maxUpgradeCountDiv" id="div5ForMaxUpgradeCount">
+                                <span class="maxUpgradeCountText" id="spanForUpgradeCount5">0/20</span>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                 <!-- улучшения "money per second" -->
+            </div>
+            <!-- меню "Улучшения" -->
+
+
+            <!-- меню "Перерождение" -->
+            <div class="rebirthMenu scrollbarChange" id="rebirthMenu1" style="display: none">
+                <span class="rebirthPointsCount">
+                    <span style="width: 25px;"><img style="width: 23px; height: 23px;" src="image/icons8-капитан-америка.svg" alt="R:"></span>
+                    <span style="width: 40px; display: flex;" id="rebirthTokensSpan">:0</span>
+                </span>
+                <button class="closeButton" id="closeButton2">X</button>
+                <span class='menuHeader'>ПЕРЕРОЖДЕНИЯ</span>
+                <div class="rebirthMenuDiv">
+                    <div class="rebirthMenuButtonDiv" id="RMcenterDiv" style="order: 2;">
+                    <button class="rebirthMenuButton">+1</button>
+                    </div>
+                    <div id="RMrightDiv">
+                        <div id="RMrightTop" style="order: 1; height: 92px;"></div>
+                        <div id="RMrightCenter" style="order: 2; height: 92px"></div>
+                        <div id="RMrightBottom" style="order: 3; height: 92px"></div>
+                    </div>
+                    <div id="RMleftDiv">
+                        <div id="RMleftTop" style="order: 1; height: 92px">
+                            <span class="textRebirthMenu" id="rebirthCostSpan" style="text-decoration: underline; text-decoration-thickness: 1px    ;">Стоимость: 100000 </span>
+                            <span class="textRebirthMenu" style="margin-top: 25px;" id="rebirthMoneyUpgraderSpan">Бонус к получаемым монетам: +0%</span>
+                        </div>
+                        <div id="RMleftCenter" style="order: 2; height: 92px"></div>
+                        <div id="RMleftBottom" style="order: 3; height: 92px; display: flex;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- меню "Перерождение" -->
+
+
+            <!-- меню "Статистика" -->
+            <div class="statisticsMenu scrollbarChange" id="statisticsMenu1" style="display: none">
+                <button class="closeButton" id="closeButton3">X</button>
+                <span class='menuHeader' style="text-decoration: underline;">СТАТИСТИКА</span>
+                <div class="statisticsMenuDiv">
+                    <div class="SMleftDiv">
+                        <span id="moneyGottenStatistics">Всего монет получено: 0</span>
+                    </div>
+                    <div class="SMcenterDiv"></div>
+                    <div class="SMrightDiv"></div>
+                </div>
+                
+
+            </div>
+            <!-- меню "Статистика" -->
+        </div>
+    </div>
+    
+    <div id="div1334"></div>
+    <script defer src="script.js"></script>
+</body>
+</html>
