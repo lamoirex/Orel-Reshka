@@ -2,7 +2,7 @@
 if(localStorage.getItem('money') > 0) {
     var money = localStorage.getItem('money')
 } else {
-    var money = 100
+    var money = 0
 }
 var upgrader = 0;
 var maxRandomValueUpgrader = 0;
