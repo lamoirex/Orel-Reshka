@@ -32,7 +32,8 @@ document.querySelector('#btn1').onclick = function() {
         let maxRandomValue = 4 + maxRandomValueUpgrader;
         var moneyGotten = Math.round((randomNumber(minRandomValue, maxRandomValue) + upgrader) * rebirthMoneyUpgrader) ;
         money = money + moneyGotten ;
-        localstorage.setItem('money', money)
+        
+        localStorage.setItem('money', money);
         
         // таймер при нажатии кнопки "подкинуть"
         let counter = 3 - counterDecreaseUpgrader;
@@ -370,7 +371,7 @@ function moneyPerSecondFunction() {
     totalMoneyReceived = totalMoneyReceived + moneyPerSecond
         document.querySelector('#moneyGottenStatistics').textContent = "Всего монет получено: " + totalMoneyReceived
 
-    localstorage.setItem('money', money)
+    localStorage.setItem('money', money);
     setTimeout(() => {
         moneyGottenSpanForMoneyDiv.style.transform = 'translateY(-20px)'
         moneyGottenSpanForMoneyDiv.style.opacity = '1';
