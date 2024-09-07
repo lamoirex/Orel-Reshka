@@ -1,6 +1,7 @@
-// var money = 0;
+var money = 0;
 if(localStorage.getItem('money') > 0) {
-    var money = localStorage.getItem('money')
+    var money = parseInt(localStorage.getItem('money'))
+    document.getElementById('moneyCount').textContent = "Монет: " + money;
 } else {
     var money = 0
 }
@@ -32,9 +33,9 @@ document.querySelector('#btn1').onclick = function() {
         let maxRandomValue = 4 + maxRandomValueUpgrader;
         var moneyGotten = Math.round((randomNumber(minRandomValue, maxRandomValue) + upgrader) * rebirthMoneyUpgrader) ;
         money = money + moneyGotten ;
-        
-        // localStorage.setItem('money', money);
-        
+
+        localStorage.setItem('money', money)
+
         // таймер при нажатии кнопки "подкинуть"
         let counter = 3 - counterDecreaseUpgrader;
         setInterval(function() {
@@ -371,7 +372,6 @@ function moneyPerSecondFunction() {
     totalMoneyReceived = totalMoneyReceived + moneyPerSecond
         document.querySelector('#moneyGottenStatistics').textContent = "Всего монет получено: " + totalMoneyReceived
 
-    // localStorage.setItem('money', money);
     setTimeout(() => {
         moneyGottenSpanForMoneyDiv.style.transform = 'translateY(-20px)'
         moneyGottenSpanForMoneyDiv.style.opacity = '1';
